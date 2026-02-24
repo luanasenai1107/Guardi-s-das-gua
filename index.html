@@ -1,46 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardiã das Águas - Game Jam</title>
+    <title>Guardiã Yaceu - Movidos a Cafeína</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Header / Navegação -->
     <header class="header">
         <nav class="nav container">
-            <div class="nav-logo logo-text">Guardiã das Águas</div>
+            <div class="nav-logo logo-text">
+                <span class="studio-name">Movidos a Cafeína</span>
+                <span class="game-name">Guardiã Yaceu</span>
+            </div>
             <button class="nav-toggle" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Projeto</a></li>
                 <li><a href="#mecanicas">Mecânicas</a></li>
-                <li><a href="#galeria">Galeria</a></li>
-                <li><a href="#devlog">Devlog</a></li>
-                <li><a href="#equipe">Equipe</a></li>
+                <li><a href="#galeria">Mídia</a></li>
+                <li><a href="#equipe">O Estúdio</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
+        <!-- Dynamic Background Elements -->
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+
         <div class="hero-overlay"></div>
         <div class="hero-content fade-in">
-            <div class="hero-tag">Game Jam 2026</div>
-            <h1 class="hero-title">Guardiã das Águas</h1>
-            <p class="hero-desc">Um jogo 2D sobre preservação, gestão e recuperação dos recursos hídricos. Desenvolvido para o Projeto Integrador do curso Técnico em Jogos Digitais.</p>
+            <div class="studio-badge">
+                <span class="badge-icon">☕</span> ESTÚDIO MOVIDOS A CAFEÍNA APRESENTA
+            </div>
+            <h1 class="hero-title logo-text">Guardiã Yaceu</h1>
+            <p class="hero-desc">Mergulhe em uma jornada 2D de preservação, gestão e recuperação dos recursos hídricos.
+                Desenvolvido exclusivamente para a organização <strong>Guardiã das Águas</strong>.</p>
             <div class="hero-buttons">
-                <a href="#galeria" class="btn btn-primary">Ver Jogo</a>
-                <a href="#devlog" class="btn btn-outline">Devlog</a>
+                <a href="#galeria" class="btn btn-primary pulse-btn">
+                    <span>Ver o Jogo</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#sobre" class="btn btn-outline">Explorar o Mundo</a>
             </div>
         </div>
+
         <div class="hero-scroll">
-            <span>Role para ver mais</span>
+            <span>Scroll</span>
             <div class="scroll-line"></div>
+        </div>
+
+        <!-- Bottom Wave Separator -->
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,155.43,124.9,235.8,111.41C268.42,105.9,301,94.9,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
         </div>
     </section>
 
@@ -50,8 +79,10 @@
         <p class="section-subtitle">Conheça a missão e o desafio da nossa Game Jam</p>
         <div class="sobre-grid container">
             <div class="sobre-texto">
-                <p><strong>Missão:</strong> Criar um jogo 2D onde a mecânica principal envolva a interação com a água ou o meio ambiente.</p>
-                <p>O objetivo é desenvolver um protótipo funcional com a temática de preservação, gestão ou recuperação de recursos hídricos.</p>
+                <p><strong>Missão:</strong> Criar um jogo 2D onde a mecânica principal envolva a interação com a água ou
+                    o meio ambiente.</p>
+                <p>O objetivo é desenvolver um protótipo funcional com a temática de preservação, gestão ou recuperação
+                    de recursos hídricos.</p>
                 <p>O projeto é dividido em três fases: Concept & Setup, Build & MVP e Polimento & Entrega Final.</p>
             </div>
             <div class="sobre-detalhes">
@@ -112,7 +143,8 @@
                 </div>
             </div>
         </div>
-        <div class="galeria-nota">* As imagens são ilustrativas e podem ser substituídas conforme o desenvolvimento.</div>
+        <div class="galeria-nota">* As imagens são ilustrativas e podem ser substituídas conforme o desenvolvimento.
+        </div>
     </section>
 
     <!-- Devlog Section -->
@@ -174,7 +206,8 @@
             </div>
         </div>
         <div class="equipe-info container">
-            <p><strong>Projeto Integrador</strong> - Game Jam Guardiã das Águas</p>
+            <p>Estúdio <strong>Movidos a Cafeína</strong></p>
+            <p>Projeto desenvolvido para a organização <strong>Guardiã das águas</strong>.</p>
             <p>Instrutor: Lucas Lopes | Unidade Curricular: Prototipagem de Negócios</p>
         </div>
     </section>
@@ -183,8 +216,8 @@
     <footer class="footer">
         <div class="footer-content container">
             <div class="footer-logo">
-                <h3>Guardiã das Águas</h3>
-                <p>Game Jam 2026 - PNI</p>
+                <h3 class="logo-text">Guardiã Yaceu</h3>
+                <p>Movidos a Cafeína - Game Jam 2026</p>
             </div>
             <div class="footer-links">
                 <a href="#sobre">Sobre</a>
@@ -195,7 +228,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Guardiã das Águas. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Movidos a Cafeína & Guardiã das águas. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -222,12 +255,12 @@
 
         // Destaque animado nos cards da equipe
         document.querySelectorAll('.membro-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 this.style.boxShadow = '0 0 32px 0 #5db8d4cc, 0 4px 24px 0 #0a0f1a55';
                 this.style.transform = 'scale(1.04)';
                 this.style.zIndex = 2;
             });
-            card.addEventListener('mouseleave', function() {
+            card.addEventListener('mouseleave', function () {
                 this.style.boxShadow = '';
                 this.style.transform = '';
                 this.style.zIndex = '';
@@ -236,11 +269,12 @@
 
         // Efeito de clique para mostrar nome do dev
         document.querySelectorAll('.membro-card').forEach(card => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 const nome = this.getAttribute('data-nome');
                 alert('Desenvolvedor(a): ' + nome);
             });
         });
     </script>
 </body>
+
 </html>
