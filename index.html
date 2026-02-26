@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="coi-serviceworker.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardiã Yaceu - Movidos a Cafeína</title>
     <link rel="stylesheet" href="style.css">
@@ -25,6 +26,7 @@
                 <li><a href="#home">Início</a></li>
                 <li><a href="#sobre">Projeto</a></li>
                 <li><a href="#mecanicas">Mecânicas</a></li>
+                <li><a href="#jogar">Jogar</a></li>
                 <li><a href="#galeria">Mídia</a></li>
                 <li><a href="#equipe">O Estúdio</a></li>
             </ul>
@@ -47,8 +49,8 @@
             <p class="hero-desc">Mergulhe em uma jornada 2D de preservação, gestão e recuperação dos recursos hídricos.
                 Desenvolvido exclusivamente para a organização <strong>Guardiã das Águas</strong>.</p>
             <div class="hero-buttons">
-                <a href="#galeria" class="btn btn-primary pulse-btn">
-                    <span>Ver o Jogo</span>
+                <a href="#jogar" class="btn btn-primary pulse-btn">
+                    <span>Jogar Agora</span>
                     <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
@@ -123,6 +125,21 @@
                 <div class="mecanica-numero">2</div>
                 <h3>Fase Vertical Slice</h3>
                 <p>Uma fase curta e jogável, com início, meio e fim, demonstrando a mecânica principal do jogo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jogar Section -->
+    <section class="section jogar" id="jogar">
+        <h2 class="section-title">Área de <span>Jogo</span></h2>
+        <p class="section-subtitle">Experimente o protótipo funcional de Guardiã Yaceu diretamente no navegador.</p>
+        <div class="game-container container">
+            <div class="game-wrapper">
+                <iframe src="jogo/index.html" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="game-controls">
+                <p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> ou <kbd>Setas</kbd> para mover</p>
+                <p><kbd>Espaço</kbd> Correr / Interagir</p>
             </div>
         </div>
     </section>
@@ -276,6 +293,12 @@
                 const nome = this.getAttribute('data-nome');
                 alert('Desenvolvedor(a): ' + nome);
             });
+        });
+
+        // Garantir foco no iframe ao clicar na seção de jogo
+        document.querySelector('.jogar').addEventListener('click', () => {
+            const frame = document.querySelector('.jogar iframe');
+            if (frame) frame.focus();
         });
     </script>
 </body>
