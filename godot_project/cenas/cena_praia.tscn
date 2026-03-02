@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dcenapraia01"]
+
+[ext_resource type="Script" uid="uid://d0dk1h86psgli" path="res://cenas/cena_praia.gd" id="1_praia"]
+[ext_resource type="Texture2D" uid="uid://chis5sly7sbso" path="res://Tile Map/Cenario Praia.png" id="2_praia"]
+[ext_resource type="PackedScene" uid="uid://dpersonagem01" path="res://personagem.tscn" id="3_praia"]
+[ext_resource type="PackedScene" uid="uid://ditem0lixo001" path="res://objetos/item_lixo.tscn" id="4_praia"]
+[ext_resource type="PackedScene" uid="uid://d0ona0trans01" path="res://objetos/zona_transicao.tscn" id="5_praia"]
+[ext_resource type="PackedScene" uid="uid://dhud00000001" path="res://hud/hud.tscn" id="6_praia"]
+
+[sub_resource type="RectangleShape2D" id="RectShape_chao"]
+size = Vector2(1300, 24)
+
+[sub_resource type="RectangleShape2D" id="RectShape_teto"]
+size = Vector2(1300, 16)
+
+[sub_resource type="RectangleShape2D" id="RectShape_parede_esq"]
+size = Vector2(20, 400)
+
+[node name="CenaPraia" type="Node2D" unique_id=2073458757]
+script = ExtResource("1_praia")
+
+[node name="Cenario" type="Sprite2D" parent="." unique_id=1234653122]
+position = Vector2(576, 316)
+texture = ExtResource("2_praia")
+
+[node name="Limites" type="Node2D" parent="." unique_id=313967464]
+
+[node name="Chao" type="StaticBody2D" parent="Limites" unique_id=1891697360]
+position = Vector2(576, 590)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/Chao" unique_id=1653968789]
+position = Vector2(7, 61)
+shape = SubResource("RectShape_chao")
+
+[node name="Teto" type="StaticBody2D" parent="Limites" unique_id=186941564]
+position = Vector2(576, 435)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/Teto" unique_id=610416619]
+shape = SubResource("RectShape_teto")
+
+[node name="ParedeEsquerda" type="StaticBody2D" parent="Limites" unique_id=297742395]
+position = Vector2(-10, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/ParedeEsquerda" unique_id=793128599]
+shape = SubResource("RectShape_parede_esq")
+
+[node name="SpawnEsquerda" type="Marker2D" parent="." unique_id=835396855]
+position = Vector2(90, 535)
+
+[node name="SpawnDireita" type="Marker2D" parent="." unique_id=1234712143]
+position = Vector2(1060, 535)
+
+[node name="Itens" type="Node2D" parent="." unique_id=1330406828]
+
+[node name="GarrafaPET" parent="Itens" unique_id=1180302572 instance=ExtResource("4_praia")]
+position = Vector2(210, 525)
+cor = Color(0.5, 0.8, 1, 1)
+tempo_respawn = 10.0
+
+[node name="SacoplAstico" parent="Itens" unique_id=1722422410 instance=ExtResource("4_praia")]
+position = Vector2(430, 530)
+cor = Color(0.9, 0.9, 0.9, 1)
+tempo_respawn = 14.0
+
+[node name="LataDe Aluminio" parent="Itens" unique_id=1455854691 instance=ExtResource("4_praia")]
+position = Vector2(660, 520)
+cor = Color(0.8, 0.8, 0.85, 1)
+tempo_respawn = 11.0
+
+[node name="EmbalagEmAlimentos" parent="Itens" unique_id=385596071 instance=ExtResource("4_praia")]
+position = Vector2(900, 528)
+cor = Color(1, 0.6, 0.2, 1)
+tempo_respawn = 13.0
+
+[node name="ZonaTransicaoDireita" parent="." unique_id=907134143 instance=ExtResource("5_praia")]
+position = Vector2(1186, 512)
+cena_destino = "res://cenas/cena_pantanal.tscn"
+
+[node name="Personagem" parent="." unique_id=509467235 instance=ExtResource("3_praia")]
+position = Vector2(35, 537)
+
+[node name="HUD" parent="." unique_id=957362512 instance=ExtResource("6_praia")]

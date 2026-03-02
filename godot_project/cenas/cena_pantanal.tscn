@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dcenapantal1"]
+
+[ext_resource type="Script" uid="uid://c0wh8atn5xb3k" path="res://cenas/cena_pantanal.gd" id="1_pant"]
+[ext_resource type="Texture2D" uid="uid://dpantanal001" path="res://Tile Map/Cenario Pantanal.png" id="2_pant"]
+[ext_resource type="PackedScene" uid="uid://dpersonagem01" path="res://personagem.tscn" id="3_pant"]
+[ext_resource type="PackedScene" uid="uid://ditem0lixo001" path="res://objetos/item_lixo.tscn" id="4_pant"]
+[ext_resource type="PackedScene" uid="uid://d0ona0trans01" path="res://objetos/zona_transicao.tscn" id="5_pant"]
+[ext_resource type="PackedScene" uid="uid://dhud00000001" path="res://hud/hud.tscn" id="6_pant"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0fby"]
+size = Vector2(153.16406, 26.731964)
+
+[sub_resource type="RectangleShape2D" id="RectShape_chao"]
+size = Vector2(1300, 24)
+
+[sub_resource type="RectangleShape2D" id="RectShape_teto"]
+size = Vector2(485, 16)
+
+[node name="CenaPantanal" type="Node2D" unique_id=179969051]
+script = ExtResource("1_pant")
+
+[node name="Cenario" type="Sprite2D" parent="." unique_id=1363400247]
+position = Vector2(576, 316)
+texture = ExtResource("2_pant")
+
+[node name="Limites" type="Node2D" parent="." unique_id=1638725823]
+
+[node name="Chao" type="StaticBody2D" parent="Limites" unique_id=1674039015]
+position = Vector2(576, 590)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Limites/Chao" unique_id=969650822]
+position = Vector2(120, -306)
+rotation = -1.422462
+shape = SubResource("RectangleShape2D_i0fby")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/Chao" unique_id=1020177360]
+position = Vector2(6, -61)
+shape = SubResource("RectShape_chao")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limites/Chao" unique_id=1735812812]
+position = Vector2(-153, -298)
+rotation = -1.5207155
+shape = SubResource("RectangleShape2D_i0fby")
+
+[node name="Teto" type="StaticBody2D" parent="Limites" unique_id=1155115319]
+position = Vector2(576, 450)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Limites/Teto" unique_id=1098077690]
+position = Vector2(16, -227)
+shape = SubResource("RectShape_teto")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limites/Teto" unique_id=1590533528]
+position = Vector2(355, -127)
+rotation = 0.0013601119
+shape = SubResource("RectShape_teto")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/Teto" unique_id=934031353]
+position = Vector2(-398.5, -87)
+shape = SubResource("RectShape_teto")
+
+[node name="SpawnEsquerda" type="Marker2D" parent="." unique_id=947316111]
+position = Vector2(29, 440)
+
+[node name="SpawnDireita" type="Marker2D" parent="." unique_id=972194940]
+position = Vector2(1060, 535)
+
+[node name="Itens" type="Node2D" parent="." unique_id=157253066]
+
+[node name="LataRascunho" parent="Itens" unique_id=1441901017 instance=ExtResource("4_pant")]
+position = Vector2(180, 525)
+cor = Color(0.7, 0.5, 0.3, 1)
+tempo_respawn = 10.0
+
+[node name="PlasticoVerde" parent="Itens" unique_id=969301970 instance=ExtResource("4_pant")]
+position = Vector2(271, 452)
+cor = Color(0.3, 0.8, 0.4, 1)
+tempo_respawn = 15.0
+
+[node name="PapelaoCaixas" parent="Itens" unique_id=847289579 instance=ExtResource("4_pant")]
+position = Vector2(599, 357)
+cor = Color(0.85, 0.7, 0.45, 1)
+
+[node name="SacoPreto" parent="Itens" unique_id=1156035267 instance=ExtResource("4_pant")]
+position = Vector2(899, 413)
+cor = Color(0.2, 0.2, 0.2, 1)
+tempo_respawn = 11.0
+
+[node name="GarrafaVidro" parent="Itens" unique_id=1841620696 instance=ExtResource("4_pant")]
+position = Vector2(1073, 431)
+cor = Color(0.4, 0.7, 0.55, 1)
+tempo_respawn = 13.0
+
+[node name="ZonaTransicaoEsquerda" parent="." unique_id=1260083819 instance=ExtResource("5_pant")]
+position = Vector2(-34, 512)
+cena_destino = "res://cenas/cena_praia.tscn"
+entrada_no_destino = "direita"
+
+[node name="ZonaTransicaoDireita" parent="." unique_id=757819070 instance=ExtResource("5_pant")]
+position = Vector2(1186, 512)
+cena_destino = "res://cenas/cena_cidade.tscn"
+
+[node name="Personagem" parent="." unique_id=1763253778 instance=ExtResource("3_pant")]
+position = Vector2(28, 444)
+
+[node name="HUD" parent="." unique_id=1942402620 instance=ExtResource("6_pant")]
+mostrar_instrucoes = false

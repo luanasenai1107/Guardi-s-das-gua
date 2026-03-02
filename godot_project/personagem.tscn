@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dpersonagem01"]
+
+[ext_resource type="Script" uid="uid://ok4tbf20g2qe" path="res://personagem.gd" id="1_pers01"]
+[ext_resource type="AnimationLibrary" uid="uid://b5utdvvybvah2" path="res://SpritesPersonagem/Roxinha.res" id="2_pers01"]
+[ext_resource type="Texture2D" uid="uid://blobyis44slgv" path="res://SpritesPersonagem/Idle.png" id="3_pers01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pers1"]
+size = Vector2(36, 44)
+
+[node name="Personagem" type="CharacterBody2D" unique_id=1459209466]
+collision_layer = 2
+script = ExtResource("1_pers01")
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=365126519]
+position = Vector2(0, -10)
+scale = Vector2(4, 4)
+texture = ExtResource("3_pers01")
+hframes = 3
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=321396974]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_pers1")
+
+[node name="Animador" type="AnimationPlayer" parent="." unique_id=1774655792]
+libraries/ = ExtResource("2_pers01")
+autoplay = &"Idle"

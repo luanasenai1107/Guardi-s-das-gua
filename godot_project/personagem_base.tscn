@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://635lu2smvj34"]
+
+[ext_resource type="Script" uid="uid://bt7mds814mk5a" path="res://personagem_base.gd" id="1_fhof6"]
+[ext_resource type="AnimationLibrary" uid="uid://b5utdvvybvah2" path="res://SpritesPersonagem/Roxinha.res" id="2_ycxjn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fhof6"]
+load_path = "res://.godot/imported/Idle.png-4e993d0c3fa47a152cf3af3e6be26471.ctex"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fhof6"]
+
+[node name="PersonagemBase" type="CharacterBody2D" unique_id=1753078557]
+script = ExtResource("1_fhof6")
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1438521993]
+position = Vector2(52.999996, 569.99994)
+scale = Vector2(10, 10)
+texture = SubResource("CompressedTexture2D_fhof6")
+hframes = 3
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=685183118]
+
+[node name="Animador" type="AnimationPlayer" parent="." unique_id=1269158128]
+libraries/ = ExtResource("2_ycxjn")
+libraries/Roxinha = SubResource("AnimationLibrary_fhof6")
+autoplay = &"Idle"

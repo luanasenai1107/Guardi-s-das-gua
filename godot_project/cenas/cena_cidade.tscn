@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dcenacidade1"]
+
+[ext_resource type="Script" uid="uid://cibfraanw2f42" path="res://cenas/cena_cidade.gd" id="1_cid"]
+[ext_resource type="Texture2D" uid="uid://dcidade00001" path="res://Tile Map/Cenario Cidade.png" id="2_cid"]
+[ext_resource type="PackedScene" uid="uid://dpersonagem01" path="res://personagem.tscn" id="3_cid"]
+[ext_resource type="PackedScene" uid="uid://ditem0lixo001" path="res://objetos/item_lixo.tscn" id="4_cid"]
+[ext_resource type="PackedScene" uid="uid://dlixeira0001" path="res://objetos/lixeira.tscn" id="5_cid"]
+[ext_resource type="PackedScene" uid="uid://d0ona0trans01" path="res://objetos/zona_transicao.tscn" id="6_cid"]
+[ext_resource type="PackedScene" uid="uid://dhud00000001" path="res://hud/hud.tscn" id="7_cid"]
+
+[sub_resource type="RectangleShape2D" id="RectShape_chao"]
+size = Vector2(1300, 24)
+
+[sub_resource type="RectangleShape2D" id="RectShape_teto"]
+size = Vector2(1300, 16)
+
+[sub_resource type="RectangleShape2D" id="RectShape_parede_dir"]
+size = Vector2(20, 400)
+
+[node name="CenaCidade" type="Node2D" unique_id=1506621716]
+script = ExtResource("1_cid")
+
+[node name="Cenario" type="Sprite2D" parent="." unique_id=575444931]
+position = Vector2(576, 316)
+texture = ExtResource("2_cid")
+
+[node name="Limites" type="Node2D" parent="." unique_id=1713725911]
+
+[node name="Chao" type="StaticBody2D" parent="Limites" unique_id=366489077]
+position = Vector2(576, 460)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/Chao" unique_id=1023264975]
+position = Vector2(-20, 185)
+shape = SubResource("RectShape_chao")
+
+[node name="Teto" type="StaticBody2D" parent="Limites" unique_id=1018314484]
+position = Vector2(576, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/Teto" unique_id=1413901126]
+position = Vector2(-7, 186)
+shape = SubResource("RectShape_teto")
+
+[node name="ParedeDireita" type="StaticBody2D" parent="Limites" unique_id=778389755]
+position = Vector2(1162, 380)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/ParedeDireita" unique_id=1143319889]
+position = Vector2(0, 76)
+shape = SubResource("RectShape_parede_dir")
+
+[node name="SpawnEsquerda" type="Marker2D" parent="." unique_id=975045838]
+position = Vector2(37, 537)
+
+[node name="SpawnDireita" type="Marker2D" parent="." unique_id=700026761]
+position = Vector2(1060, 415)
+
+[node name="Itens" type="Node2D" parent="." unique_id=1759644963]
+
+[node name="LixoCidade1" parent="Itens" unique_id=733807432 instance=ExtResource("4_cid")]
+position = Vector2(236, 495)
+cor = Color(0.9, 0.3, 0.3, 1)
+
+[node name="LixoCidade2" parent="Itens" unique_id=845419689 instance=ExtResource("4_cid")]
+position = Vector2(496, 565)
+cor = Color(0.6, 0.4, 0.8, 1)
+tempo_respawn = 14.0
+
+[node name="LixoCidade3" parent="Itens" unique_id=1752012503 instance=ExtResource("4_cid")]
+position = Vector2(790, 498)
+tempo_respawn = 10.0
+
+[node name="Lixeira" parent="." unique_id=751291560 instance=ExtResource("5_cid")]
+position = Vector2(1095, 563)
+
+[node name="ZonaTransicaoEsquerda" parent="." unique_id=1642510102 instance=ExtResource("6_cid")]
+position = Vector2(-30, 506)
+cena_destino = "res://cenas/cena_pantanal.tscn"
+entrada_no_destino = "direita"
+
+[node name="Personagem" parent="." unique_id=575514316 instance=ExtResource("3_cid")]
+position = Vector2(39, 532)
+
+[node name="HUD" parent="." unique_id=949683929 instance=ExtResource("7_cid")]
+mostrar_instrucoes = false

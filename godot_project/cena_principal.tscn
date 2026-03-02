@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bhkcqyaahlccq"]
+
+[ext_resource type="Texture2D" uid="uid://chis5sly7sbso" path="res://Tile Map/Cenario Praia.png" id="1_gib8o"]
+[ext_resource type="Script" uid="uid://bt7mds814mk5a" path="res://personagem_base.gd" id="2_vv0rr"]
+[ext_resource type="Texture2D" uid="uid://blobyis44slgv" path="res://SpritesPersonagem/Idle.png" id="3_quwlu"]
+
+[sub_resource type="Animation" id="Animation_0hol4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q6r6c"]
+_data = {
+&"RESET": SubResource("Animation_0hol4")
+}
+
+[node name="CenaPrincipal" type="Node2D" unique_id=1341332325]
+position = Vector2(0, 10)
+
+[node name="Cenario" type="Sprite2D" parent="." unique_id=2100804088]
+position = Vector2(575, 316)
+texture = ExtResource("1_gib8o")
+
+[node name="PersonagemBase" type="CharacterBody2D" parent="." unique_id=1549544078]
+script = ExtResource("2_vv0rr")
+
+[node name="Sprite2D" type="Sprite2D" parent="PersonagemBase" unique_id=535324293]
+position = Vector2(5, -7)
+texture = ExtResource("3_quwlu")
+hframes = 3
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PersonagemBase" unique_id=91924539]
+
+[node name="Animador" type="AnimationPlayer" parent="PersonagemBase" unique_id=76703092]
+libraries/ = SubResource("AnimationLibrary_q6r6c")

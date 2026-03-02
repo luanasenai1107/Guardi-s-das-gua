@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dzona0trans01"]
+
+[ext_resource type="Script" uid="uid://dzonatransgd1" path="res://objetos/zona_transicao.gd" id="1_ztrans"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ztrans"]
+size = Vector2(60, 400)
+
+[node name="ZonaTransicao" type="Area2D"]
+script = ExtResource("1_ztrans")
+collision_mask = 2
+cena_destino = ""
+entrada_no_destino = "esquerda"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ztrans")
